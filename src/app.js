@@ -11,5 +11,6 @@ const routes = require('./routes/router');
 app.use('/api', routes)
 
 app.listen(5000, () => {
-    console.log('Servidor online')
+    console.log('Servidor online na porta 500')
+    console.log('Rota base /api/service')
 })
