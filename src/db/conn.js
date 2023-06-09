@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
 
+
+const usuario = "admin"
+const senha = "admin"
 async function main() {
 try {
     await mongoose.connect(
-"mongodb+srv://<pablo>:<fonseca>@cluster0.xpyejiw.mongodb.net/?retryWrites=true&w=majority"
+`mongodb+srv://${usuario}:${senha}@cluster0.xpyejiw.mongodb.net/?retryWrites=true&w=majority`
 
     )
 } catch(error) {
