@@ -47,6 +47,27 @@ const serviceController = {
         } catch (error) {
             return res.status(400).json({mensagem: error.message})
         }
+    },
+    update: async (req,res) => {
+        try {
+            const id = req.params.id
+            const updateBody = {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                image: req.body.image
+            };
+
+            const updatedService = await ServiceModel.findByIdAndUpdate(id, updateBody)
+
+            if(!updatedService) {
+                return res.status(404).json({updatedService, msg: "Servico nao encontrado!!"})
+            }
+
+            return res.status(200).json({updatedService, msg: "Serviço atualizado com sucesso."})
+        } catch (error) {
+            return res.status(400).json({mensagem: error.message})
+        }
     }
 }
 
